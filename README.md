@@ -1,7 +1,6 @@
 # Unsicherheit und Gleichgewicht: globale Spiele – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-globale-spiele-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-globale-spiele-demo.streamlit.app/)**
 
 Viertes Stück der Reihe **Koordinationsspiele** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Vehikel: **Sammelverkehr über den Hub.** Betriebe legen ihre Sendungen auf einen gemeinsamen Zubringer (mitmachen) oder fahren direkt. Der Zubringer trägt sich, wenn mindestens der Anteil **θ** der Betriebe mitmacht; θ kennt niemand genau, jeder Betrieb hat nur ein **privates, verrauschtes Signal**. Die Demo **zählt** die Gleichgewichte in Schwellenstrategien („mitmachen, wenn das Signal höchstens x* ist“), zeigt, **wo die Eindeutigkeit endet**, was **endlich viele Betriebe** ändern, wie lange die **Beste-Antwort-Iteration** braucht und, im E-Mail-Spiel, warum „jeder weiß es“ weniger ist als gemeinsames Wissen.
 
@@ -155,4 +154,4 @@ Gebaut mit Streamlit, Plotly, NumPy und fpdf2.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Koordinationsspiele: von Gleichwahl bis Kaskade](https://sebastianhanisch.net/konzepte-koordinationsspiele.html).
