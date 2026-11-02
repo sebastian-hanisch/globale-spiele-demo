@@ -243,7 +243,7 @@ with tab2:
 # --- Tab 3 ---------------------------------------------------------------------------------------------------------------------------------
 with tab3:
     st.subheader("🔬 Experiment E3: Was kostet die Unsicherheit?")
-    st.caption(f"Modell R mit α = {V.de(settings.alpha, 1)}, y = {V.de(settings.y, 2)}, c = {V.de(settings.c, 2)} aus der Seitenleiste (unabhängig vom gewählten Modell). Der kritische Zustand θ̂ wird mit genaueren Signalen mit dem Grenzwert 1 − c verglichen, den ein Betrieb ohne Rauschen wählen würde.")
+    st.caption(f"Modell R mit α = {V.de(settings.alpha, 1)}, y = {V.de(settings.y, 2)}, c = {V.de(settings.c, 2)} aus der Seitenleiste (unabhängig vom gewählten Modell). Der kritische Zustand θ̂ wird mit genaueren Signalen mit dem Grenzwert 1 − c verglichen, den ein Betrieb ohne Rauschen wählen würde. „Verloren“ heißt gegenüber dem Gleichgewicht „alle machen mit“ bei bekanntem θ; würde dort „keiner“ gewählt, brächte die Unsicherheit eher Projekte.")
     rows3 = X.e3_rows(settings.alpha, settings.y, settings.c)
     st.plotly_chart(Z.build_theta_over_beta(rows3, settings.c), width="stretch", key="e3_chart")
     table([{"β": V.thousands(r["beta"]), "Gleichgewichte": r["count"], "θ̂": ", ".join(V.de(t, 4) for t in r["thetas"]), "Grenzwert 1 − c": V.de(r["limit"], 3),

@@ -214,7 +214,7 @@ def verdict_e3(rows: list[dict], alpha: float, y: float, c: float) -> tuple[str,
         return "info", "Bei diesen Einstellungen hat keine der gerechneten Signalgenauigkeiten ein einziges Gleichgewicht; der kritische Zustand ist nicht eindeutig."
     last, first = unique[-1], unique[0]
     gap = abs(last["thetas"][0] - last["limit"])
-    lost = f" Verlorene Projekte P(θ̂ < θ < 1): {pct(first['p_lost'])} bei β = {thousands(first['beta'])} und {pct(last['p_lost'])} bei β = {thousands(last['beta'])}." if first["p_lost"] is not None and last["p_lost"] is not None else ""
+    lost = f" Verlorene Projekte gegenüber dem Gleichgewicht „alle“ bei bekanntem θ, P(θ̂ < θ < 1):{pct(first['p_lost'])} bei β = {thousands(first['beta'])} und {pct(last['p_lost'])} bei β = {thousands(last['beta'])}." if first["p_lost"] is not None and last["p_lost"] is not None else ""
     multi = [r for r in rows if r["count"] != 1]
     note = f" Bei β = {', '.join(thousands(r['beta']) for r in multi)} gibt es mehrere Gleichgewichte (kein einzelnes θ̂)." if multi else ""
     near = "sehr nahe" if gap < 0.01 else "noch nicht nahe"
