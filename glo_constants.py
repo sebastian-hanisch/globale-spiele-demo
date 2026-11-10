@@ -10,7 +10,7 @@ MODELS = ("Regimewechsel (Modell R)", "Linear (Modell L)")
 MODEL_R, MODEL_L = MODELS
 
 # --- Regler ---------------------------------------------------------------------------------------------------------------------------------
-Y_MIN, Y_MAX, DEFAULT_Y = 0.10, 0.90, 0.50           # Mittel des Priors für den Zustand θ (Mindestanteil, ab dem das Projekt trägt)
+Y_MIN, Y_MAX, DEFAULT_Y = 0.10, 0.90, 0.50           # Mittel des Priors für den Zustand θ (Mindestanteil, ab dem sich das Projekt lohnt)
 ALPHA_MIN, ALPHA_MAX, DEFAULT_ALPHA = 0.5, 30.0, 4.0    # Genauigkeit des Priors (1/Varianz); Streuung = 1/√α. Bei α = 30, β = 0,1, y = ½ liegt die Randwurzel des Modells L unter 10^-300
 BETA_MIN, BETA_MAX, DEFAULT_BETA = 0.1, 100.0, 16.0     # Genauigkeit des privaten Signals
 C_MIN, C_MAX, DEFAULT_C = 0.05, 0.95, 0.50           # Aufwand der Umstellung, immer fällig (nur Modell R)

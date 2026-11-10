@@ -1,7 +1,7 @@
 """Unsicherheit und Gleichgewicht: globale Spiele - interaktive Konzept-Demo
 Sebastian Hanisch - Operations Research und Machine Learning
 
-Viertes Stück der Reihe Koordinationsspiele. Betriebe kennen den Zustand (wie viele müssen mitmachen, damit sich ein gemeinsamer Zubringer trägt) nur über ein verrauschtes privates Signal.
+Viertes Stück der Reihe Koordinationsspiele. Betriebe kennen den Zustand (wie viele müssen mitmachen, damit sich ein gemeinsamer Zubringer lohnt) nur über ein verrauschtes privates Signal.
 Die Demo zählt die Gleichgewichte in Schwellenstrategien, zeigt, wo die Eindeutigkeit endet, was endlich viele Betriebe ändern, wie lange die Beste-Antwort-Iteration braucht
 und warum „jeder weiß es“ weniger ist als gemeinsames Wissen (E-Mail-Spiel).
 
@@ -86,7 +86,7 @@ st.markdown(
     """
 **Viertes Stück der Reihe Koordinationsspiele.** Das erste Stück (`koordinationsspiel-demo`) zeigt die Gleichgewichte eines Koordinationsspiels, das zweite (`gleichgewichtsauswahl-demo`), welche Konvention auf Dauer gewählt wird,
 das dritte (`konventionswechsel-demo`), wie lange ein Wechsel dauert. Hier geht es um die Frage davor: **Betriebe legen ihre Sendungen auf einen gemeinsamen Zubringer zum Hub (mitmachen) oder fahren direkt.**
-Der Zubringer trägt sich nur, wenn mindestens der Anteil **θ** der Betriebe mitmacht, und θ kennt niemand genau: jeder Betrieb hat nur eine **private, verrauschte Schätzung** (sein Signal).
+Der Zubringer lohnt sich nur, wenn mindestens der Anteil **θ** der Betriebe mitmacht, und θ kennt niemand genau: jeder Betrieb hat nur eine **private, verrauschte Schätzung** (sein Signal).
 **Wird aus „alle machen mit / keiner macht mit“ dadurch ein eindeutiges Gleichgewicht, und wo genau endet diese Eindeutigkeit?** Gezählt wird, nicht behauptet.
 
 Nicht zu verwechseln mit `globaler-schnitt-demo` (dort geht es um den globalen Schnitt in Graphen): „globales Spiel“ heißt hier ein Koordinationsspiel mit Unsicherheit über den Zustand.
@@ -132,7 +132,7 @@ with st.sidebar:
                          help="Regimewechsel: das Projekt startet, wenn genug mitmachen. Linear: Mitmachen bringt Anteil minus θ. Die Experimente E3 und E4 rechnen immer das Modell R, E5 beide Modelle.")
     is_regime = model == C.MODEL_R
     st.header("🎚️ Unsicherheit")
-    y = st.slider("Prior-Mittel y", *bounds("y_slider"), key="y_slider", step=0.05, help="Mittel des Zustands θ unter dem Prior (θ ist der Mindestanteil, ab dem sich der Zubringer trägt).")
+    y = st.slider("Prior-Mittel y", *bounds("y_slider"), key="y_slider", step=0.05, help="Mittel des Zustands θ unter dem Prior (θ ist der Mindestanteil, ab dem sich der Zubringer lohnt).")
     alpha = st.slider("Prior-Genauigkeit α", *bounds("alpha_slider"), key="alpha_slider", step=0.5, help="Genauigkeit des Priors (1/Varianz). Die Streuung ist 1/√α: je größer α, desto besser kennen alle θ schon vorab.")
     beta = st.slider("Signal-Genauigkeit β", *bounds("beta_slider"), key="beta_slider", step=0.1, help="Genauigkeit des privaten Signals (1/Varianz des Rauschens). Die Streuung ist 1/√β. Ab β ≥ α²/(2π) gibt es im Modell R für jedes (y, c) nur ein Gleichgewicht.")
     st.caption(f"Streuung des Priors 1/√α = {V.de(1 / math.sqrt(alpha), 3)}; Streuung des Signals 1/√β = {V.de(1 / math.sqrt(beta), 3)}.")
@@ -165,7 +165,7 @@ m2.metric("Faustformel β ≥ α²/(2π)", "erfüllt" if view.formula_ok else "n
 m3.metric("stabil / instabil", f"{sum(r.stable for r in view.rows)} / {sum(not r.stable for r in view.rows)}", help="Stabil: die Beste-Antwort-Iteration zieht dorthin; instabil: eine kleine Abweichung wächst.")
 m4.metric("P(θ ∈ (0, 1))", V.pct(view.p_unit), help="Ohne Unsicherheit gäbe es nur in diesen Zuständen die zwei Gleichgewichte „alle“ und „keiner“.")
 
-st.markdown("#### ❓ Kernfrage: Wie viele Gleichgewichte gibt es, und trägt die Faustformel?")
+st.markdown("#### ❓ Kernfrage: Wie viele Gleichgewichte gibt es, und gilt die Faustformel?")
 v_count = V.verdict_count(view)
 show(v_count)
 verdicts.append(v_count)
